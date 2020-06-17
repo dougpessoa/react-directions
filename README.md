@@ -5,6 +5,8 @@ ReactJS - Google Maps - React Hooks
 
 The React Directions is a simple application that brings how to get latitude and longitude of two places and searches directions.
 
+See demo [here] (https://react-directions.herokuapp.com/)
+Or see on Gitpod [here] (https://gitpod.io/#https://github.com/dougpessoa/react-directions)
 
 ## :question: And what is the proposal?
 Study, only. This application shows my evolution on front-end development. :heartpulse:
