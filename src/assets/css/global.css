@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, button, input, h1, h2, h3, h4, h5, h6, span, label, p{
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background-color: rgb(219, 237, 252);
+}
+
+.formGroup{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.formGroup label{
+  padding: 0 0 4px 3px;
+}
+
+input{
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 7px;
+  border: 1px solid transparent;
+}
+
+input:focus:not(.directions-inputs){
+  border: 1px solid #06B26B !important;
+  outline: none;
+}
