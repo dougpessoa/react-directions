@@ -4,7 +4,8 @@
   "private": true,
   "author": {
     "name": "Douglas Pessoa",
-    "email": "douglaspereira1@outlook.com"
+    "email": "douglaspereira1@outlook.com",
+    "url": "https://react-directions.herokuapp.com/"
   },
   "license": "MIT",
   "dependencies": {
