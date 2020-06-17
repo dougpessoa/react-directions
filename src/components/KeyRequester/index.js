@@ -32,7 +32,6 @@ export default function KeyRequester({ validKey }) {
       <div className="popup">
         <div className="required-box">
           <h3>Please, type your Google Maps Key</h3>
-          
           <h4 
             style={{ 
               display: invalidKey ? "block" : "none"
@@ -41,14 +40,12 @@ export default function KeyRequester({ validKey }) {
             Your key is invalid. <br />
             Click <span onClick={redirectToGitHub}>here</span> to find out how to get a correct key
           </h4>
-          
           <input 
             type="text" 
             name="form-required-key" 
             placeholder="Your key here"
             onChange={(e) => setKey(e.target.value)}
           />
-
           <button onClick={check}>Check</button>
           <h6>
             To proceed it is necessary to put the key. <br/>

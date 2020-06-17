@@ -163,7 +163,6 @@ export default function Sidebar({ places, googleKey, newDirections }) {
           </button>
           { error && <span>{errorMessage}</span> }
         </div>
-
         <div className="directionsEndOfBody">
           <Footer />
         </div>
