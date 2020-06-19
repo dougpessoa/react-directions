@@ -1,5 +1,5 @@
 # :round_pushpin: React Directions
-ReactJS - Google Maps - React Hooks
+ReactJS - Google Maps - React Hooks - Styled Components (CSS-in-JS)
 
 ## :eyes: Overview
 
