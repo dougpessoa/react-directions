@@ -10,7 +10,14 @@ import Footer from '../../components/Footer';
 
 import loading from '../../assets/images/loading.png';
 
-import './styles.css';
+// import './styles.css';
+import {
+  Container,
+  Content,
+  PlaceBtn,
+  HomeEndBody,
+  Loading
+} from './styles';
 
 export default function Home() {
   const { data } = useLocation();
@@ -47,7 +54,7 @@ export default function Home() {
       setError(true);
       setErrorMessage(
         startResponse.data.status === "ZERO_RESULTS" ?
-        'The place you’re coming from is non-existent.'
+        'The origin place doesn’t exist.'
         : "Some error happened unexpectedly, try again"
       );
       setIsLoading(false);
@@ -65,7 +72,7 @@ export default function Home() {
       setError(true);
       setErrorMessage(
         destinationResponse.data.status === "ZERO_RESULTS" ?
-        'The place you are wanting to go to is non-existent'
+        "The destination doesn't exist"
         : "Some error happened unexpectedly, try again"
       );
       setIsLoading(false);
@@ -82,7 +89,7 @@ export default function Home() {
 
     if((distance / 1000) > 5000){
       setError(true);
-      setErrorMessage(`The distance between "${start}" and "${destination}" is greater than the limit for this system.`);
+      setErrorMessage(`The distance between "${start}" and "${destination}" is bigger than the limit supported by system.`);
       setIsLoading(false);
       return;
     }
@@ -112,12 +119,12 @@ export default function Home() {
   return (
     <>
       {keyRequester && <KeyRequester validKey={settingValidKey} /> }
-      <div className="container">
-        <div className="content">
+      <Container>
+        <Content>
           <Header />
           <div className="place-in-out">
             <div className="formGroup">
-              <label>Where are you going from?</label>
+              <label>Where are you?</label>
               <input type="text" onChange={(e) => setStart(e.target.value)} placeholder="Type here your origin"/>
             </div>
             <div className="formGroup">
@@ -125,18 +132,18 @@ export default function Home() {
               <input type="text" onChange={(e) => setDestination(e.target.value)} placeholder="Type here your destination"/>
             </div>
           </div>
-          <div className="place-btn">
+          <PlaceBtn>
             <button onClick={getDirections}>
                 Get directions
-                {isLoading && <img src={loading} alt="Loading" className="isLoading"/> }
+                {isLoading && <Loading src={loading} alt="Loading"/> }
             </button>
             { error && <span>{errorMessage}</span> }
-          </div>
-          <div className="homeEndBody">
+          </PlaceBtn>
+          <HomeEndBody>
             <Footer />
-          </div>
-        </div>
-      </div> 
+          </HomeEndBody>
+        </Content>
+      </Container> 
     </>
   );
 }

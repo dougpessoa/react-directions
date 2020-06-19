@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles.css';
+import { Title, Subtitle, Social, Img } from './styles';
 
 import linkedin from '../../assets/images/linkedin.png';
 import github from '../../assets/images/github.png';
@@ -14,27 +14,27 @@ export default function Footer() {
 
   return (
     <div className="footer">
-      <h3>Developed by Douglas Pessoa</h3>
-      <div className="social">
-        <h6>Follow me</h6>
-        <div className="logo-social">
-          <img 
+      <Title>Developed by Douglas Pessoa</Title>
+      <Social>
+        <Subtitle>Follow me</Subtitle>
+        <div>
+          <Img 
             src={linkedin} 
             alt="Linkedin" 
             onClick={() => redirect('https://www.linkedin.com/in/douglaspessoa/')}
           />
-          <img 
+          <Img 
             src={github} 
             alt="Github"
             onClick={() => redirect('https://github.com/dougpessoa')}
           />
-          <img 
+          <Img 
             src={instagram} 
             alt="Instagram" 
             onClick={() => redirect('https://www.instagram.com/dougpeople/')}
           />
         </div>
-      </div>
+      </Social>
     </div>
   );
 }

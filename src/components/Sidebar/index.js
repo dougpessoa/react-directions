@@ -6,7 +6,17 @@ import geocodeMapsApi from '../../services/geoCodeApi';
 
 import Footer from '../Footer';
 
-import './styles.css';
+import {
+  Bar,
+  GoBack,
+  Form,
+  Point,
+  Inputs,
+  ChangeDirections,
+  GetDirections,
+  DirectionsEndOfBody,
+  Loading
+} from './styles';
 
 import goBack from '../../assets/images/go-back.png';
 import backForth from '../../assets/images/back_forth.png';
@@ -60,7 +70,7 @@ export default function Sidebar({ places, googleKey, newDirections }) {
       setError(true);
       setErrorMessage(
         startResponse.data.status === "ZERO_RESULTS" ?
-        'The place you’re coming from is non-existent.'
+        'The origin place doesn’t exist.'
         : "Some error happened unexpectedly, try again"
       );
       setIsLoading(false);
@@ -77,7 +87,7 @@ export default function Sidebar({ places, googleKey, newDirections }) {
       setError(true);
       setErrorMessage(
         destinationResponse.data.status === "ZERO_RESULTS" ?
-        'The place you are wanting to go to is non-existent'
+        "The destination doesn't exist"
         : "Some error happened unexpectedly, try again"
       );
       setIsLoading(false);
@@ -94,7 +104,7 @@ export default function Sidebar({ places, googleKey, newDirections }) {
 
     if((distance / 1000) > 5000){
       setError(true);
-      setErrorMessage(`The distance between "${start}" and "${destination}" is greater than the limit for this system.`);
+      setErrorMessage(`The distance between "${start}" and "${destination}" is bigger than the limit supported by system.`);
       setIsLoading(false);
       return;
     }
@@ -118,55 +128,53 @@ export default function Sidebar({ places, googleKey, newDirections }) {
 
   return (
     <>
-      <div className="sidebar">
-        <div className="go-back">
+      <Bar>
+        <GoBack>
           <Link to={{
             pathname: '/',
             data: key
           }}>
             <img src={goBack} alt="Go back arrow"/>
           </Link>
-        </div>
-        <div className="form-directions">
-          <div className="points" >
+        </GoBack>
+        <Form>
+          <Point>
             <span>A</span>
             <div className="circle"></div>
             <div className="circle"></div>
             <div className="circle"></div>
             <span>B</span>
-          </div>
-          <div className="inputs">
+          </Point>
+          <Inputs>
             <input 
-              type="text" 
-              className="directions-inputs" 
-              placeholder="Choose starting point"
+              type="text"  
+              placeholder="Type here your origin"
               value={start}
               onChange={(e) => setStart(e.target.value)}
             />
 
             <input 
               type="text" 
-              className="directions-inputs" 
-              placeholder="Choose destination..."
+              placeholder="Type here your destination"
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
             />
-          </div>
-          <div className="change-directions">
-            <img src={backForth} onClick={reverse} title="Reverse starting point and destination" alt="Back and Forth"/>
-          </div>
-        </div>
-        <div className="get-directions">
+          </Inputs>
+          <ChangeDirections>
+            <img src={backForth} onClick={reverse} title="Switch between destination and starting point" alt="Back and Forth"/>
+          </ChangeDirections>
+        </Form>
+        <GetDirections>
           <button onClick={getNewDirections}>
             Get new directions
-            {isLoading ? <img src={loading} alt="Loading" className="isLoading"/> : "" }
+            {isLoading ? <Loading src={loading} alt="Loading"/> : "" }
           </button>
           { error && <span>{errorMessage}</span> }
-        </div>
-        <div className="directionsEndOfBody">
+        </GetDirections>
+        <DirectionsEndOfBody>
           <Footer />
-        </div>
-      </div>
+        </DirectionsEndOfBody>
+      </Bar>
     </>
   );
 }

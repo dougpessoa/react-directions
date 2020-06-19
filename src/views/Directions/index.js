@@ -3,7 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 
 import Sidebar from '../../components/Sidebar';
 import Map from '../../components/Map';
-import  './styles.css';
+import { PageDirections } from  './styles';
 
 export default function Directions() {
   const history = useHistory();
@@ -20,14 +20,13 @@ export default function Directions() {
   }, [data, history]);
 
   function reloadMap(places){
-    console.log('places:?', places);
     setShowMap(false);
     setPlaces(places);
     setShowMap(true);
   }
 
   return (
-    <div className="page-directions">
+    <PageDirections>
       <Sidebar 
         places={places} 
         googleKey={key} 
@@ -48,6 +47,6 @@ export default function Directions() {
         defaultCenter={{lat: -22.951867, lng: -43.210412}}
         defaultZoom={11}
       /> }
-    </div>
+    </PageDirections>
   );
 }

@@ -1,36 +1,36 @@
-.footer{
+import styled from 'styled-components';
+
+export const Footer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: #4CB245; */
-}
+`;
 
-.footer h3{
+export const Title = styled.h3`
   font-size: 20px;
   color: #4CB245;
   font-style: italic;
-}
+`;
 
-.social{
+export const Social = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-bottom: 20px;
-}
+`;
 
-.social h6{
-  font-size: 17px;
-  color: #4CB245;
-  font-style: italic;
-}
-
-.social img{
+export const Img = styled.img`
   max-width: 30px;
   max-height: 30px;
   margin: 12px 6px 0 6px;
   cursor: pointer;
-}
+`;
+
+export const Subtitle = styled(Title)`
+  font-size: 17px;
+`;
+
