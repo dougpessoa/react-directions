@@ -31,7 +31,7 @@ export default function Footer() {
           <Img 
             src={instagram} 
             alt="Instagram" 
-            onClick={() => redirect('https://www.instagram.com/dougpeople/')}
+            onClick={() => redirect('https://www.instagram.com/odougpessoa/')}
           />
         </div>
       </Social>
